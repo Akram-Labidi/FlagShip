@@ -1,0 +1,14 @@
+{
+  "name": "flagship",
+  "version": "1.0.0",
+  "description": "Feature flag and deployment management platform",
+  "private": true,
+  "license": "MIT",
+  "engines": { "node": ">=22.13" },
+  "scripts": {
+    "start": "NODE_NO_WARNINGS=1 node server/index.js",
+    "seed": "NODE_NO_WARNINGS=1 node server/seed.js",
+    "demo": "NODE_NO_WARNINGS=1 node examples/banking-app.js",
+    "test": "NODE_NO_WARNINGS=1 node --test test/*.test.js"
+  }
+}

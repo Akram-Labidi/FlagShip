@@ -1,0 +1,18 @@
+services:
+  flagship:
+    build: .
+    ports: ["3000:3000"]
+    volumes: ["flagship-data:/data"]
+    environment:
+      FLAGSHIP_SECRET: ${FLAGSHIP_SECRET:-change-me-in-production}
+  prometheus:
+    image: prom/prometheus
+    profiles: ["monitoring"]
+    volumes: ["./prometheus.yml:/etc/prometheus/prometheus.yml:ro"]
+    ports: ["9090:9090"]
+  grafana:
+    image: grafana/grafana
+    profiles: ["monitoring"]
+    ports: ["3001:3000"]
+volumes:
+  flagship-data:
